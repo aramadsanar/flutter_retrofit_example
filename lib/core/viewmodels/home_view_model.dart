@@ -22,13 +22,13 @@ class HomeViewModel extends BaseModel {
   }
 
   Future<void> fetchPosts() async {
-    final HttpResponse<List<Post>> response = await postApi.getPosts();
+    final HttpResponse<List<Post>?> response = await postApi.getPosts();
 
     final int responseCode = response.response.statusCode ?? 0;
     if (responseCode < 200 || responseCode > 299) {
       return;
     }
 
-    posts = response.data;
+    posts = response.data ?? <Post>[];
   }
 }

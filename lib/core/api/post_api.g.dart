@@ -14,7 +14,7 @@ class _PostApi implements PostApi {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<List<Post>>> getPosts() async {
+  Future<HttpResponse<List<Post>?>> getPosts() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -25,8 +25,8 @@ class _PostApi implements PostApi {
                 .compose(_dio.options, '/posts',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => Post.fromJson(i as Map<String, dynamic>))
+    var value = _result.data
+        ?.map((dynamic i) => Post.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
