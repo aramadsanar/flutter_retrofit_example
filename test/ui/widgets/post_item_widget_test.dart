@@ -83,4 +83,24 @@ void main() {
       expect(find.byType(ElevatedButton), findsOneWidget);
     },
   );
+
+  testWidgets(
+    'PostItemWidget displays title and a button - find by Widget keys',
+    (WidgetTester tester) async {
+      // Build the widget
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: PostItemWidget(
+              item: post,
+              onClick: () {},
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byKey(PostItemWidgetKeys.textSectionKey), findsOneWidget);
+      expect(find.byKey(PostItemWidgetKeys.buttonSectionKey), findsOneWidget);
+    },
+  );
 }

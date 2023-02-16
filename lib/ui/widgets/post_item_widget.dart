@@ -25,12 +25,14 @@ class PostItemWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             item.title ?? '',
+            key: PostItemWidgetKeys.textSectionKey,
           ),
           if (item.title?.isNotEmpty == true) ...<Widget>[
             SizedBox(
               height: 16,
             ),
             ElevatedButton(
+              key: PostItemWidgetKeys.buttonSectionKey,
               style: style,
               onPressed: onClick,
               child: const Text('See Detail'),
@@ -40,4 +42,9 @@ class PostItemWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+class PostItemWidgetKeys {
+  static const Key textSectionKey = Key('text_section');
+  static const Key buttonSectionKey = Key('button_section');
 }
