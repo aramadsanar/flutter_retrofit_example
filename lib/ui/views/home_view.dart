@@ -4,6 +4,7 @@ import 'package:retrofit_dio_example/core/api/post_api.dart';
 import 'package:retrofit_dio_example/core/models/post.dart';
 import 'package:retrofit_dio_example/core/viewmodels/home_view_model.dart';
 import 'package:retrofit_dio_example/ui/views/base_widget.dart';
+import 'package:retrofit_dio_example/ui/widgets/post_item_widget.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -47,12 +48,7 @@ class HomeView extends StatelessWidget {
       itemCount: model.posts.length,
       itemBuilder: (context, index) {
         final Post item = model.posts[index];
-        return Padding(
-          padding: EdgeInsets.all(16),
-          child: Text(
-            item.title ?? '',
-          ),
-        );
+        return PostItemWidget(item: item);
       },
     );
   }
