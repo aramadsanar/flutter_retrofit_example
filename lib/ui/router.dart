@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:retrofit_dio_example/core/constants/app_constants.dart';
 import 'package:retrofit_dio_example/ui/views/home_view.dart';
 
 class Router {
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<Object> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RoutePaths.Home:
-        return MaterialPageRoute(builder: (_) => HomeView());
+      case RoutePaths.home:
+        return MaterialPageRoute<Object>(builder: (_) => const HomeView());
       default:
-        return MaterialPageRoute(
+        return MaterialPageRoute<Object>(
           builder: (_) => Scaffold(
             body: Center(
               child: Text('No route defined for ${settings.name}'),

@@ -8,11 +8,11 @@ List<SingleChildWidget> providers = <SingleChildWidget>[
 ];
 
 List<SingleChildWidget> apiServices = <SingleChildWidget>[
-  Provider.value(
+  Provider<PostApi>.value(
     value: PostApi(
       Dio(
         BaseOptions(
-          contentType: "application/json",
+          contentType: 'application/json',
           baseUrl: 'https://jsonplaceholder.typicode.com',
         ),
       ),

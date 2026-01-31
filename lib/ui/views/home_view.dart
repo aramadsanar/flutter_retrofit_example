@@ -6,6 +6,8 @@ import 'package:retrofit_dio_example/core/viewmodels/home_view_model.dart';
 import 'package:retrofit_dio_example/ui/views/base_widget.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(
@@ -16,7 +18,7 @@ class HomeView extends StatelessWidget {
       builder: (BuildContext context, HomeViewModel model, _) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'Flutter Retrofit Example',
             ),
           ),
@@ -31,7 +33,7 @@ class HomeView extends StatelessWidget {
     HomeViewModel model,
   ) {
     if (model.busy) {
-      Center(
+      const Center(
         child: CircularProgressIndicator(),
       );
     }
@@ -45,10 +47,10 @@ class HomeView extends StatelessWidget {
   ) {
     return ListView.builder(
       itemCount: model.posts.length,
-      itemBuilder: (context, index) {
+      itemBuilder: (BuildContext context, int index) {
         final Post item = model.posts[index];
         return Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Text(
             item.title ?? '',
           ),
